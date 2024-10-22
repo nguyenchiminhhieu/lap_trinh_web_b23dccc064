@@ -1,0 +1,51 @@
+.ToDoItem{
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+.ItemContent{
+    margin-right: 50px;
+    margin-left: 10px;
+    width: 90%;
+}
+
+.ToDoItem .Title{
+    font-size: 14px;
+}
+
+.ToDoItem .DueDate {
+    font-size: 12px;
+}
+
+.ToDoItem .Action *{
+    margin-right: 5px;
+}
+
+.ToDoItem input[type="checkbox"] {
+    appearance: none; /* Loại bỏ kiểu mặc định của checkbox */
+    -webkit-appearance: none; /* Loại bỏ kiểu mặc định cho trình duyệt WebKit */
+    -moz-appearance: none; /* Loại bỏ kiểu mặc định cho Firefox */
+    width: 20px; /* Đặt kích thước checkbox */
+    height: 20px;
+    background-color: #fff; /* Màu nền */
+    border: 2px solid #000; /* Đặt viền */
+    border-radius: 50%; /* Biến checkbox thành hình tròn */
+    position: relative;
+    cursor: pointer;
+}
+
+.ToDoItem input[type="checkbox"]:checked {
+    background-color: #007bff; /* Màu nền khi được chọn */
+    border-color: #007bff;
+}
+
+.ToDoItem input[type="checkbox"]:checked::before {
+    content: "\2713"; /* Biểu tượng dấu check (dùng mã Unicode) */
+    color: white; /* Màu của dấu check */
+    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }

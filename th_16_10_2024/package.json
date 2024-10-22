@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "framer-motion": "^11.5.6",
+    "lucide": "^0.445.0",
+    "lucide-react": "^0.445.0",
+    "micromodal": "^0.4.10",
+    "react-router-dom": "^6.26.2"
+  }
+}
