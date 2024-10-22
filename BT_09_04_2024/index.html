@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Users</title>
+    <style>
+        html {
+            background-color: rgb(232, 247, 247);
+        }
+
+        body {
+            padding: 0px;
+            margin: 0px;
+
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            /* Chiều cao 100% của màn hình */
+        }
+
+        .top-div {
+            /* background: linear-gradient(0, #d31010, #ef8655); */
+            background-color: rgb(213, 53, 35);
+            height: 20%;
+            width: 100%;
+            text-align: center;
+            /* Căn giữa văn bản trong phần tử */
+        }
+
+        .top-div h1 {
+            color: white;
+        }
+
+        .menu {
+            display: flex;
+            /* Sử dụng Flexbox */
+            flex-direction: column;
+            /* Sắp xếp theo chiều dọc */
+            list-style: none;
+            /* Loại bỏ dấu chấm đầu dòng */
+            padding: 0;
+            /* Loại bỏ padding mặc định của danh sách */
+        }
+
+        .nutbam {
+            /* margin-bottom: 10px; Tạo khoảng cách giữa các mục (tuỳ chọn) */
+            background-color: rgb(1, 4, 17);
+            ;
+            /* Màu nền của hộp */
+            padding: 10px;
+            /* Khoảng cách bên trong hộp */
+            margin: 10px 0;
+            /* Khoảng cách giữa các hộp (tuỳ chọn) */
+            border: 1px solid #000;
+            /* Đường viền của hộp */
+            border-radius: 10px 10px 10px 10px;
+
+        }
+
+        .box-duoi {
+            display: flex;
+            height: 80%;
+            /* Chiều cao 100% của màn hình */
+        }
+
+        .left-div {
+            padding: 20px 10px 10px 15px;
+            /* float: left; Xếp cạnh bên trái */
+            background-color: rgb(239, 124, 93);
+            flex: 1;
+            /* Chiếm 30% chiều rộng của container */
+
+        }
+
+        .right-div {
+            background-color: white;
+            flex: 9;
+            /* Chiếm 70% chiều rộng của container */
+        }
+
+        .thanhphan-menu {
+            text-decoration: none;
+            /* Loại bỏ gạch chân */
+            color: white;
+            font-weight: bold;
+
+        }
+
+        .all-tt-ds {
+            display: flex;
+            /* flex-direction: column;*/
+            justify-content: center;
+            align-items: center;
+            /* Để căn giữa theo chiều ngang */
+            /* height: 900px; Đặt chiều cao tùy ý */
+            border: 0;
+            /* Để tạo box cho thẻ container */
+
+        }
+
+        .infor {
+            /* width: 400px;*/
+            height: 50px;
+            margin: 25px;
+            background-color: rgb(232, 117, 40);
+            border-radius: 10px 10px 10px 10px;
+        }
+
+        .infor::after {
+            content: "Thông tin sinh viên";
+            font-size: 24px;
+            /* Kích thước chữ lớn hơn, bạn có thể thay đổi giá trị theo ý muốn */
+            font-weight: bold;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .form-student input[type="text"],
+        .form-student input[type="radio"] {
+            border-radius: 5px;
+        }
+
+        .button-add {
+            border-radius: 10px 10px 10px 10px;
+        }
+
+        div.form-student {
+            /* width: 700px; */
+            border: 1px solid #ccc;
+            margin: 25px;
+            padding: 10px;
+            padding-top: 0px;
+            float: left;
+            background-color: rgba(221, 211, 211, 0.5);
+            border-radius: 10px 10px 10px 10px;
+        }
+
+        div.list-student {
+            /* width: 800px; */
+            border: 1px solid #ccc;
+            margin: 25px;
+            padding: 10px;
+            float: left;
+            background-color: rgba(247, 242, 242, 0.5);
+            border-radius: 10px 10px 10px 10px;
+            overflow: auto;
+            max-height: 500px;
+        }
+
+        .list-student-name {
+            /* width: 400px; */
+            height: 50px;
+            margin: 25px;
+            margin-top: 20px;
+            background-color: rgb(232, 117, 40);
+            border-radius: 10px 10px 10px 10px;
+        }
+
+        .list-student-name::after {
+            content: "DANH SÁCH SINH VIÊN";
+            font-size: 24px;
+            /* Kích thước chữ lớn hơn, bạn có thể thay đổi giá trị theo ý muốn */
+            font-weight: bold;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        div.list-student {
+            width: 1000px;
+        }
+
+        h3 {
+            padding: 0px;
+            margin-top: 0px;
+
+        }
+
+        div.form-student label {
+            width: 150px;
+            float: left;
+        }
+
+        div.form-student input[type="text"],
+        button {
+            margin-bottom: 10px;
+            width: 200px;
+            padding: 5px;
+        }
+
+        button {
+            margin-top: 15px;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+ 
+    <div class="container">
+        <!-- box trên cùng -->
+        <div class="top-div">
+            <h1>QUẢN LÝ SINH VIÊN</h1>
+        </div>
+        <!-- box bên dưới -->
+        <div class="box-duoi">
+            <div class="left-div">
+                <nav>
+                    <ul class="menu">
+                        <li class="nutbam"><a class="thanhphan-menu" href="#" id="button1">Thêm sinh viên</a></li>
+                        <li class="nutbam"><a class="thanhphan-menu" href="#" id="button2">Danh sách sinh viên</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- box bên phải -->
+            <div class="right-div">
+                <div class="all-tt-ds">
+                    <div id="content1" class="content">
+                        <!-- Nội dung của Nút 1 -->
+                        <div class="form-student">
+                            <div class="infor">
+
+                            </div>
+                            <!-- <h3>Thông tin sinh viên</h3> -->
+                            <label>Mã sinh viên</label>
+                            <input type="text" id="maSv" />
+                            <span id="maSv-error" class="error"></span>
+                            <br />
+                            <label>Họ và tên</label>
+                            <input type="text" id="fullname" />
+                            <span id="fullname-error" class="error"></span>
+                            <br />
+                            <label>Lớp hành chính</label>
+                            <input type="text" id="lopHanhChinh" />
+                            <span id="lopHanhChinh-error" class="error"></span>
+                            <br />
+                            <label>Email</label>
+                            <input type="text" id="email" />
+                            <span id="email-error" class="error"></span>
+                            <br />
+                            <label>Số điện thoại</label>
+                            <input type="text" id="phone" />
+                            <span id="phone-error" class="error"></span>
+                            <br />
+                            <label>Địa chỉ</label>
+                            <input type="text" id="address" />
+                            <span id="address-error" class="error"></span>
+                            <br />
+                            <label>Trạng thái</label>
+                            <input type="text" id="note" />
+                            <span id="address-error" class="error"></span>
+                            <br />
+                            <label>Giới tính</label>
+                            <input type="radio" name="gender" id="male" value="1" /> Nam
+                            <input type="radio" name="gender" id="female" value="2" /> Nữ
+                            <span id="gender-error" class="error"></span>
+                            <br />
+
+                            <label>&nbsp;</label>
+                            <button class="button-add" onclick="save()">Thêm vào</button>
+                            <button class="button-add" onclick="change()"> Sửa </button>
+
+                        </div>
+                    </div>
+                    <div id="content2" class="content">
+                        <!-- Nội dung của Nút 2 -->
+                        <div>
+                            <button id="getStudentsById" onclick="listStudent()"> Tìm kiếm sinh viên </button>
+                            <input id="getMaSv" type="text">
+                        </div>
+                        <div class="list-student" id="list-student">
+                            <div class="list-student-name">
+                            </div>
+                            <!-- <h3>Danh sách sinh viên</h3> -->
+                            <table id="grid-students" width="1000" border="1" cellpadding="0" cellpadding="0">
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script>
+        function emailIsValid(email) {
+            var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            return emailPattern.test(email);
+        }
+
+        function checkInfor(maSv, fullname, lopHanhChinh, email, phone, address, gender) {
+            // maSv
+            if (_.isEmpty(maSv)) {
+                maSv = '';
+                document.getElementById('maSv-error').innerHTML = 'Vui lòng nhập mã sinh viên';
+            } else if (maSv.trim().length <= 9 || maSv.trim().length > 10) {
+                maSv = '';
+                document.getElementById('maSv-error').innerHTML = 'Mã sinh viên phải đủ 10 kí tự';
+            } else {
+                document.getElementById('fullname-error').innerHTML = '';
+            }
+
+            // ten
+            if (_.isEmpty(fullname)) {
+                fullname = '';
+                document.getElementById('fullname-error').innerHTML = 'Vui lòng nhập họ và tên';
+            } else if (fullname.trim().length <= 2) {
+                fullname = '';
+                document.getElementById('fullname-error').innerHTML = 'Không được nhỏ hơn 2 ký tự';
+            } else if
+                (fullname.trim().length > 50) {
+                fullname = '';
+                document.getElementById('fullname-error').innerHTML = 'Không được lớn hơn 50 ký tự';
+            } else {
+                document.getElementById('fullname-error').innerHTML = '';
+            }
+
+            // lop
+            if (_.isEmpty(lopHanhChinh)) {
+                lopHanhChinh = '';
+                document.getElementById('lopHanhChinh-error').innerHTML = 'Vui lòng nhập lớp hành chính';
+            } else if (lopHanhChinh.trim().length <= 9 || lopHanhChinh.trim().length > 11) {
+                lopHanhChinh = '';
+                document.getElementById('lopHanhChinh-error').innerHTML = 'Lớp hành chính phải đủ 11 kí tự';
+            } else {
+                document.getElementById('lopHanhChinh-error').innerHTML = '';
+            }
+
+            // email
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            if (_.isEmpty(email)) {
+                email = '';
+                document.getElementById('email-error').innerHTML = 'Vui lòng nhập email';
+            } else if (!emailPattern.test(email)) {
+                email = '';
+                document.getElementById('email-error').innerHTML = 'email không đúng định dạng';
+            } else {
+                document.getElementById('email-error').innerHTML = '';
+            }
+            // so dien thoai
+            if (_.isEmpty(phone)) {
+                phone = '';
+                document.getElementById('phone-error').innerHTML = 'Vui lòng nhập số điện thoại';
+            } else if (phone.trim().length < 10 || phone.trim().length > 10) {
+                phone = '';
+                document.getElementById('phone-error').innerHTML = 'Số điện thoại không đúng';
+            } else {
+                document.getElementById('phone-error').innerHTML = '';
+            }
+            // dia chi
+            if (_.isEmpty(address)) {
+                address = '';
+                document.getElementById('address-error').innerHTML = 'Vui lòng nhập địa chỉ';
+            } else {
+                document.getElementById('address-error').innerHTML = '';
+            }
+            // giới tính
+            if (_.isEmpty(gender)) {
+                gender = '';
+                document.getElementById('gender-error').innerHTML = 'Vui lòng chọn giới tính';
+            }
+            else {
+                document.getElementById('gender-error').innerHTML = '';
+            }
+
+            if (fullname && email && address && gender && lopHanhChinh && maSv && phone) {
+                return true;
+            }
+            return false;
+        }
+
+
+       
+        
+        function save() {
+            console.log('save');
+            console.log('Im in');
+
+            let maSv = document.getElementById('maSv').value;
+            let fullname = document.getElementById('fullname').value;
+            let lopHanhChinh = document.getElementById('lopHanhChinh').value;
+            let email = document.getElementById('email').value;
+            let phone = document.getElementById('phone').value;
+            let address = document.getElementById('address').value;
+            let note = document.getElementById('note').value;
+            let gender = '';
+            if (document.getElementById('male').checked) {
+                gender = 'Nam';
+            } else if (document.getElementById('female').checked) {
+                gender = 'Nu';
+            }
+
+
+            if (checkInfor(maSv, fullname, lopHanhChinh, email, phone, address, gender)) {
+
+                console.log(gender);
+
+                url = "http://127.0.0.1:8000/save_userName";
+                fetch(url, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        maSv: maSv,
+                        fullName: fullname,
+                        lopHanhChinh: lopHanhChinh,
+                        email: email,
+                        soDt: phone,
+                        diaChi: address,
+                        gioiTinh: gender,
+                        note: note
+                    }),
+                })
+                    .then((data) => {
+                        console.log("Success:", data);
+                    })
+                    .catch((error) => {
+                        console.error("Error:", error);
+                    });
+            }
+        }
+
+
+        function listStudent() {
+
+            fetch("http://127.0.0.1:8000/getStudents")
+                .then((response) => response.json())
+                .then((Data) => {
+                    // Lấy user đầu tiên từ mảng data
+                    console.log("Hello");
+                    // console.log(Data)
+
+                    let students = Data.data
+                    console.log(students.length);
+                    // console.log(students);
+                    if (students.length === 0) {
+                        document.getElementById('list-student').style.display = 'none';
+                        return false;
+                    }
+                    document.getElementById('list-student').style.display = 'block';
+
+                    let tableContent = `<tr>
+                    <td width='20'>#</td>
+                    <td>Mã sinh viên</td>
+                    <td>Họ và tên</td>
+                    <td>Lớp hành chính</td>
+                    <td>Điện thoại</td>
+                    <td>Email</td>
+                    <td>Địa chỉ</td>
+                    <td>Giới tính</td>
+                    <td>Trạng thái</td>
+                    <td>Chức năng</td></tr>`;
+
+                    let keyword = document.getElementById('getMaSv').value.trim();
+                    if (keyword == '') {
+                        keyword = null;
+                    }
+
+                    students.forEach((student, index) => {
+                        if (student[0].includes(keyword) || student[1].includes(keyword) || student[2].includes(keyword) || student[3].includes(keyword) || student[4].includes(keyword) || student[5].includes(keyword) || student[6].includes(keyword) || keyword == null) {
+                            let studentId = index;
+                            let maSinhVien = student[0];
+                            let fullname = student[1];
+                            let lopHanhChinh = student[2];
+                            let email = student[4];
+                            let phone = student[3];
+                            let address = student[5];
+                            let genderLabel = student[6];
+                            let note = student[7];
+                            index++;
+
+                            console.log(maSinhVien);
+                            console.log(fullname);
+                            console.log(email);
+                            console.log(phone);
+                            console.log(genderLabel);
+                            console.log(address);
+
+                            tableContent += ` <tr>
+                            <td>${index}</td>
+                            <td>${maSinhVien}</td>
+                            <td>${fullname}</td>
+                            <td>${lopHanhChinh}</td>
+                            <td>${phone}</td>
+                            <td>${email}</td>
+                            <td>${address}</td>
+                            <td>${genderLabel}</td>
+                            <td>${note}</td>
+                            <td>
+                                <a href = '#' data-maSinhVien="${maSinhVien}" onclick='deleteStudent(this)'>Xóa</a>
+                            </td>
+                            </tr>`;
+                        }
+                    })
+
+                    document.getElementById('grid-students').innerHTML = tableContent;
+                });
+        }
+
+        function deleteStudent(element) {
+            const maSinhVien = element.getAttribute('data-maSinhVien');
+            console.log(maSinhVien);
+            url = `http://127.0.0.1:8000/deleteStudent/${maSinhVien}`;
+            fetch(url, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+                .then((response) => {
+                    if (response.ok) {
+                        console.log("Xoa thanh cong");
+                        // Xóa hàng tương ứng trên giao diện
+                        const rowToDelete = element.closest('tr');  // phương thức này tìm thẻ gần nhất có tên là tr mà có chứa liên kết này.
+                        rowToDelete.remove();
+                    } else
+                        console.log("Xoa that bai");
+                })
+                .catch((error) => {
+                    console.error("Error: loi khi xoa sinh vien");
+                });
+        }
+
+        function change(element) {
+            let maSv = document.getElementById('maSv').value;
+            let fullname = document.getElementById('fullname').value;
+            let lopHanhChinh = document.getElementById('lopHanhChinh').value;
+            let email = document.getElementById('email').value;
+            let phone = document.getElementById('phone').value;
+            let address = document.getElementById('address').value;
+            let note = document.getElementById('note').value;
+            let gender = '';
+            if (document.getElementById('male').checked) {
+                gender = 'Nam';
+            } else if (document.getElementById('female').checked) {
+                gender = 'Nu';
+            }
+
+            if (checkInfor(maSv, fullname, lopHanhChinh, email, phone, address, gender)) {
+                console.log(fullname);
+                console.log(email);
+                console.log(note);
+                
+                
+                url = "http://127.0.0.1:8000/changeStudent";
+                fetch(url, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        maSv: maSv,
+                        fullName: fullname,
+                        lopHanhChinh: lopHanhChinh,
+                        email: email,
+                        soDt: phone,
+                        diaChi: address,
+                        gioiTinh: gender,
+                        note: note
+                    }),
+                })
+                    .then((data) => {
+                        console.log("Success:", data);
+                    })
+                    .catch((error) => {
+                        console.error("Error:", error);
+                    });
+            }
+        }
+
+        document.getElementById('button1').addEventListener('click', function () {
+            document.getElementById('content1').style.display = 'block';
+            document.getElementById('content2').style.display = 'none';
+        });
+
+        document.getElementById('button2').addEventListener('click', function () {
+            document.getElementById('content2').style.display = 'block';
+            document.getElementById('content1').style.display = 'none';
+        });
+        // Ẩn nội dung khi trang web được tải lần đầu
+        document.getElementById('content1').style.display = 'none';
+        document.getElementById('content2').style.display = 'none';
+    </script>
+</body>
+
+</html>

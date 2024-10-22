@@ -1,0 +1,97 @@
+html {
+    background-color: rgb(232, 247, 247);
+}
+body {
+    padding: 0px;
+    margin: 0px;
+
+}
+.infor {
+    width: 400px;
+    height: 50px;
+    margin: 25px;
+    background-color: rgb(133, 137, 138);
+    border-radius: 10px 10px 10px 10px;
+    
+}
+.infor::after {
+    content: "Thông tin sinh viên";
+    font-size: 24px; /* Kích thước chữ lớn hơn, bạn có thể thay đổi giá trị theo ý muốn */
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    height: 100%; 
+}
+.form-student input[type="text"],
+.form-student input[type="radio"] {
+    border-radius: 5px;
+}
+
+.button-add {
+    border-radius: 10px 10px 10px 10px; 
+}
+  
+div.form-student {
+    width: 600px;
+    border: 1px solid #ccc;
+    margin: 25px;
+    padding: 10px;
+    padding-top: 0px;
+    float:left;
+    background-color: rgba(221, 211, 211, 0.5);
+}
+div.list-student {
+    width: 600px;
+    border: 1px solid #ccc;
+    margin: 25px;
+    padding: 10px;
+    flex: 7;
+    background-color: rgba(221, 211, 211, 0.5) ;
+    max-height: 300px;
+    overflow: auto;
+}
+.list-student-name {
+    width: 400px;
+    height: 50px;
+    margin: 25px;
+    margin-top: 20px;
+    background-color: rgb(133, 137, 138);
+    border-radius: 10px 10px 10px 10px;
+}
+.list-student-name::after {
+    content: "DANH SÁCH SINH VIÊN";
+    font-size: 24px; 
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    height: 100%; 
+}
+
+div.list-student {
+    width: 750px;
+}
+h3 {
+    padding: 0px;
+    margin-top: 0px;
+
+}
+
+div.form-student label {
+    width: 150px;
+    float: left;
+}
+
+div.form-student input[type="text"], button {
+    margin-bottom: 10px;
+    width: 200px;
+    padding: 5px;
+}
+
+button {
+    margin-top: 15px;
+}
+.error {
+    color: red;
+}
