@@ -1,0 +1,34 @@
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .todo-item input[type="radio"] {
+    margin-right: 10px;
+  }
+  
+  .todo-item span {
+    flex: 1;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .todo-item button {
+    margin-left: 5px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+  }
+  
+  .todo-item button:hover {
+    background-color: #0056b3;
+  }

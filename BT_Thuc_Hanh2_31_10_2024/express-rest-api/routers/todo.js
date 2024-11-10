@@ -11,8 +11,6 @@ router.get('/', (req, res) => {
 });
 
 
-
-
 router.post('/', (req, res) => {
     const { title, description, due_date } = req.body;
     db.query('INSERT INTO todos (title, description, due_date) VALUES (?, ?, ?)', [title, description, due_date], (err, result) => {
