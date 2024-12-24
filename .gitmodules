@@ -1,0 +1,3 @@
+[submodule "meta-human"]
+	path = meta-human
+	url = https://github.com/nguyenchiminhhieu/metahuman.git
