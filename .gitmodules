@@ -1,3 +1,6 @@
 [submodule "meta-human"]
 	path = meta-human
 	url = https://github.com/nguyenchiminhhieu/metahuman.git
+[submodule "chatbot3d"]
+	path = chatbot3d
+	url = https://github.com/nguyenchiminhhieu/chatbot_3d.git
