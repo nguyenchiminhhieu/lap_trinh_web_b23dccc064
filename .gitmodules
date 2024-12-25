@@ -4,3 +4,6 @@
 [submodule "chatbot3d"]
 	path = chatbot3d
 	url = https://github.com/nguyenchiminhhieu/chatbot_3d.git
+[submodule "LinguaPro"]
+	path = LinguaPro
+	url = https://github.com/nguyenchiminhhieu/LinguaPro.git
